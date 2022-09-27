@@ -1,11 +1,15 @@
 function ContactCard({
-  contact: { email, firstName, lastName, phoneNumber, nickname },
+  contact,
   setIsModalOpen,
   setIsEditing,
+  setEditingContact,
 }) {
+  const { email, firstName, lastName, phoneNumber, nickname } = contact;
+
   function openEditModal() {
     setIsModalOpen(true);
     setIsEditing(true);
+    setEditingContact(contact);
   }
 
   return (

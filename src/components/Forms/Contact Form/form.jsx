@@ -8,7 +8,7 @@ function formHandler() {
       <Field placeholder="Apelido" name="nickname" />
       <Field placeholder="E-mail" name="email" type="email" />
       <Field placeholder="Telefone" name="phoneNumber" />
-      <button type="submit">Cadastrar</button>
+      <button type="submit">Enviar</button>
     </Form>
   );
 }

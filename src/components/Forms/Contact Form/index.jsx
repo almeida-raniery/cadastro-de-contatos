@@ -18,7 +18,7 @@ function ContactForm({ initialValues, isEditing }) {
 
   function handleSubmit(values) {
     isEditing 
-      ? patchContact(values)
+      ? patchContact(values, loginInfo.token, initialValues.id)
       : createContact(values, loginInfo.token)
   }
 

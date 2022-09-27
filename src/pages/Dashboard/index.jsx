@@ -11,6 +11,7 @@ function DashboardPage() {
   const { isLoggedIn, loginInfo } = useSession();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [editingContact, setEditingContact] = useState(null)
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -32,12 +33,14 @@ function DashboardPage() {
               contact={contact}
               setIsModalOpen={setIsModalOpen}
               setIsEditing={setIsEditing}
+              setEditingContact={setEditingContact}
             />
           </li>
         ))}
       </ul>
       <button onClick={() => setIsModalOpen(true)}>+</button>
       <ContactModal
+        contact={editingContact}
         isOpen={isModalOpen}
         setIsOpen={setIsModalOpen}
         isEditing={isEditing}
