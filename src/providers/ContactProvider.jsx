@@ -10,9 +10,12 @@ export function ContactApiProvider({ children }) {
   async function createContact(data, token) {
     delete data.passwordConfirm;
 
-    const resp = await requestApi.postAuth("/contacts", data, token);
+    const createResp = await requestApi.postAuth("/contacts", data, token);
+    const listResp   = await requestApi.getAuth("/contacts", token);
 
-    return resp.data;
+    setContactList(listResp.data)
+
+    return createResp.data;
   }
 
   async function patchContact(data, token, contactId) {

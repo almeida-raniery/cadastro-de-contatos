@@ -30,8 +30,4 @@ requestApi.requestAuth = (url, token, method = "get", data = {}) => {
     return requestApi.requestAuth(url, token, "delete");
   };
   
-  requestApi.verifyToken = (token) => {
-    return requestApi.getAuth("/verification", token);
-  }
-
   export default requestApi

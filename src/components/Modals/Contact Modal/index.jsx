@@ -2,11 +2,9 @@ import { useState } from "react";
 import Modal from "react-modal";
 import ContactForm from "../../Forms/Contact Form";
 
-function ContactModal({ contact }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
+function ContactModal({ contact, isOpen, setIsOpen, isEditing, setIsEditing }) {
   function closeModal() {
+    setIsEditing(false)
     setIsOpen(false);
   }
 
@@ -17,3 +15,5 @@ function ContactModal({ contact }) {
     </Modal>
   );
 }
+
+export default ContactModal

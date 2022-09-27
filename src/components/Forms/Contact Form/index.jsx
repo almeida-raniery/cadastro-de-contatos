@@ -1,4 +1,6 @@
 import { Formik } from "formik";
+import { useContactApi } from "../../../providers/ContactProvider";
+import { useSession } from "../../../providers/SessionProvider";
 import contactSchema from "../../../schemas/contactSchema";
 import formHandler from "./form";
 
@@ -10,9 +12,14 @@ const initial = {
   phoneNumber: "",
 };
 
-function ContactForm({ initialValues }) {
+function ContactForm({ initialValues, isEditing }) {
+  const {createContact, patchContact} = useContactApi()
+  const {loginInfo} = useSession()
+
   function handleSubmit(values) {
-    console.log(values);
+    isEditing 
+      ? patchContact(values)
+      : createContact(values, loginInfo.token)
   }
 
   return (
